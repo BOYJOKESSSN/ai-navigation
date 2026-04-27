@@ -93,18 +93,15 @@ export default function Footer() {
       {/* 底部版权条 */}
       <div className="border-t border-white/[0.04]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-slate-700 text-xs flex items-center gap-1">
-            © 2024-{new Date().getFullYear()} AI导航
-            <span className="text-slate-800">·</span>
-            All Rights Reserved
+          <p className="text-slate-600 text-xs flex items-center gap-1.5">
+            © 2026 AI导航 · All Rights Reserved
           </p>
-          <p className="text-slate-700 text-xs flex items-center gap-1">
-            <Sparkles size={10} className="text-indigo-500/40" />
+          <p className="text-slate-600 text-xs flex items-center gap-1.5">
+            <Sparkles size={10} className="text-indigo-500/30" />
             收录 200+ AI 工具
-            <span className="text-slate-800">·</span>
-            用
-            <Heart size={10} className="text-pink-500/40 inline mx-0.5" />
-            打造
+            <span className="text-slate-700">·</span>
+            Made with
+            <Heart size={10} className="text-pink-500/30 inline mx-0.5" />
           </p>
         </div>
       </div>

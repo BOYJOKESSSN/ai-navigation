@@ -1,12 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <rect width="512" height="512" rx="100" fill="#6C5CE7"/>
-  <path d="M160 180c0-20 16-36 36-36s36 16 36 36-16 36-36 36-36-16-36-36z" fill="#fff"/>
-  <path d="M280 180c0-20 16-36 36-36s36 16 36 36-16 36-36 36-36-16-36-36z" fill="#fff"/>
-  <circle cx="172" cy="178" r="8" fill="#6C5CE7"/>
-  <circle cx="212" cy="178" r="8" fill="#6C5CE7"/>
-  <circle cx="292" cy="178" r="8" fill="#6C5CE7"/>
-  <circle cx="332" cy="178" r="8" fill="#6C5CE7"/>
-  <path d="M256 240c-60 0-108 40-108 88 0 36 24 68 56 80v20h104v-20c32-12 56-44 56-80 0-48-48-88-108-88z" fill="#fff"/>
-  <path d="M236 280c4 8 36 8 40 0" stroke="#6C5CE7" stroke-width="5" stroke-linecap="round" fill="none"/>
-  <rect x="244" y="292" width="24" height="8" rx="4" fill="#6C5CE7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>QinYan</title>
+  <!-- Chat bubble -->
+  <path d="M12 16C12 12.686 14.686 10 18 10H46C49.314 10 52 12.686 52 16V40C52 43.314 49.314 46 46 46H32L20 56V46H18C14.686 46 12 43.314 12 40V16Z" fill="#6C5CE7"/>
+  <!-- Bubble highlight -->
+  <path d="M16 14C16 11.791 17.791 10 20 10H44C46.209 10 48 11.791 48 14V38C48 40.209 46.209 42 44 42H30L22 50V42H20C17.791 42 16 40.209 16 38V14Z" fill="#7c68ee"/>
+  <!-- Q letter -->
+  <path d="M26 18H32C36.4 18 40 21.6 40 26C40 30.4 36.4 34 32 34H28V42H24V34H26V18Z" fill="#ffffff"/>
+  <!-- Q tail -->
+  <path d="M36 36L44 44" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <!-- Decorative dots -->
+  <circle cx="20" cy="24" r="2" fill="#a78bfa"/>
+  <circle cx="48" cy="20" r="2" fill="#a78bfa" opacity="0.5"/>
 </svg>

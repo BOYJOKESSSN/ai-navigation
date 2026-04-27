@@ -14,7 +14,7 @@ const CATEGORIES = [
   { id: 'video', label: 'AI视频' },
   { id: 'audio', label: 'AI音频' },
   { id: 'productivity', label: '效率工具' },
-  { id: 'other', label: '其他' },
+  { id: 'community', label: '技术社区' },
 ];
 
 const PRICE_FILTERS = [

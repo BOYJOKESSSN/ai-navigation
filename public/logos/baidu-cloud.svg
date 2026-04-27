@@ -1,11 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
-  <rect width="512" height="512" rx="100" fill="#2932E1"/>
-  <path d="M256 100c-72 0-130 58-130 130 0 50 28 94 70 116v56c0 16 12 28 28 28h64c16 0 28-12 28-28v-56c42-22 70-66 70-116 0-72-58-130-130-130z" fill="#fff"/>
-  <path d="M220 180c0-20 16-36 36-36s36 16 36 36-16 36-36 36-36-16-36-36z" fill="#2932E1"/>
-  <circle cx="244" cy="178" r="8" fill="#fff"/>
-  <circle cx="268" cy="178" r="8" fill="#fff"/>
-  <path d="M244 210h24" stroke="#2932E1" stroke-width="6" stroke-linecap="round"/>
-  <path d="M236 252c8 12 32 12 40 0" stroke="#2932E1" stroke-width="5" stroke-linecap="round" fill="none"/>
-  <rect x="236" y="296" width="40" height="8" rx="4" fill="#fff" opacity="0.5"/>
-  <rect x="248" y="312" width="16" height="24" rx="4" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Baidu Cloud</title>
+  <!-- Cloud shape -->
+  <ellipse cx="28" cy="36" rx="20" ry="14" fill="#2932E1"/>
+  <ellipse cx="44" cy="32" rx="14" ry="12" fill="#2932E1"/>
+  <ellipse cx="36" cy="24" rx="12" ry="10" fill="#2932E1"/>
+  <ellipse cx="18" cy="32" rx="10" ry="8" fill="#2932E1"/>
+  <!-- Highlight -->
+  <ellipse cx="30" cy="28" rx="10" ry="8" fill="#4a5ae8"/>
+  <!-- Baidu dot -->
+  <circle cx="32" cy="44" r="4" fill="#ffffff"/>
+  <text x="32" y="47" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#2932E1" text-anchor="middle">B</text>
 </svg>

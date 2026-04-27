@@ -48,6 +48,26 @@ export const brandLogos: Record<string, BrandConfig> = {
   grammarly: { initials: 'Gr', bg: '#15c39a', fg: '#ffffff' },
   jasper: { initials: 'Ja', bg: '#18181b', fg: '#f97316' },
   gamma: { initials: 'Ga', bg: '#7c3aed', fg: '#ffffff' },
+  // 新增品牌配置
+  wenxin: { initials: '文', bg: '#2932E1', fg: '#ffffff' },
+  tongyi: { initials: '通', bg: '#FF6A00', fg: '#ffffff' },
+  xinghuo: { initials: '讯', bg: '#0066FF', fg: '#ffffff' },
+  metaso: { initials: '秘', bg: '#6C5CE7', fg: '#ffffff' },
+  yuanbao: { initials: '元', bg: '#07C160', fg: '#ffffff' },
+  leonardo: { initials: 'Le', bg: '#A855F7', fg: '#ffffff' },
+  ideogram: { initials: 'Id', bg: '#EC4899', fg: '#ffffff' },
+  wanxiang: { initials: '万', bg: '#FF6A00', fg: '#ffffff' },
+  'jimeng-video': { initials: '即', bg: '#7B5EA7', fg: '#ffffff' },
+  pika: { initials: 'Pi', bg: '#F472B6', fg: '#ffffff' },
+  windsurf: { initials: 'Ws', bg: '#10B981', fg: '#ffffff' },
+  replit: { initials: 'Re', bg: '#F26207', fg: '#ffffff' },
+  xiezuocat: { initials: '猫', bg: '#6C5CE7', fg: '#ffffff' },
+  'copy-ai': { initials: 'Ca', bg: '#7C3AED', fg: '#ffffff' },
+  'notion-writing': { initials: 'No', bg: '#0d1117', fg: '#ffffff' },
+  murf: { initials: 'Mu', bg: '#1E3A5F', fg: '#ffffff' },
+  'gamma-prod': { initials: 'Ga', bg: '#7c3aed', fg: '#ffffff' },
+  otter: { initials: 'Ot', bg: '#2563EB', fg: '#ffffff' },
+  'perplexity-prod': { initials: 'Pe', bg: '#2563eb', fg: '#ffffff' },
 };
 
 export function getBrandLogo(slug: string): BrandConfig {

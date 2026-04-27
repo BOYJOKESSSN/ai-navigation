@@ -1,1 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.003 0-.006 0-.01 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>DALL-E</title>
+  <!-- Flower/petal pattern - OpenAI style -->
+  <g transform="translate(32,32)">
+    <!-- Petals -->
+    <ellipse cx="0" cy="-16" rx="8" ry="14" fill="#10a37f"/>
+    <ellipse cx="0" cy="-16" rx="8" ry="14" fill="#10a37f" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-16" rx="8" ry="14" fill="#10a37f" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-16" rx="8" ry="14" fill="#10a37f" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-16" rx="8" ry="14" fill="#10a37f" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-16" rx="8" ry="14" fill="#10a37f" transform="rotate(300)"/>
+    <!-- Inner circle -->
+    <circle cx="0" cy="0" r="10" fill="#0d8a63"/>
+    <circle cx="0" cy="0" r="6" fill="#10a37f"/>
+    <!-- Highlight -->
+    <circle cx="-2" cy="-2" r="3" fill="#4ade80" opacity="0.5"/>
+  </g>
+  <!-- Sparkles -->
+  <circle cx="12" cy="12" r="2" fill="#10a37f" opacity="0.4"/>
+  <circle cx="52" cy="14" r="2.5" fill="#10a37f" opacity="0.3"/>
+  <circle cx="54" cy="50" r="2" fill="#10a37f" opacity="0.4"/>
+  <circle cx="10" cy="50" r="1.5" fill="#10a37f" opacity="0.3"/>
+</svg>

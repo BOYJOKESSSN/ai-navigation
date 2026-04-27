@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { href: '/', label: '首页' },
@@ -38,9 +39,10 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <ThemeToggle />
             <Link
               to="/admin"
-              className="btn-glow ml-3 px-4 py-2 rounded-lg text-sm font-medium bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow-lg shadow-indigo-500/20"
+              className="btn-glow ml-2 px-4 py-2 rounded-lg text-sm font-medium bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow-lg shadow-indigo-500/20"
             >
               后台管理
             </Link>
@@ -61,6 +63,10 @@ export default function Header() {
       {open && (
         <div className="md:hidden border-t border-white/[0.06]" style={{ background: 'rgba(10, 14, 26, 0.95)', backdropFilter: 'blur(20px)' }}>
           <div className="px-4 py-3 space-y-1">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs text-slate-500">外观</span>
+              <ThemeToggle />
+            </div>
             {navLinks.map(link => (
               <Link
                 key={link.href}

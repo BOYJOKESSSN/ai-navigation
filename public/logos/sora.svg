@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M19.5 12c0 4.142-3.134 7.5-7 7.5S5.5 16.142 5.5 12 8.634 4.5 12.5 4.5 19.5 7.858 19.5 12zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Sora</title>
+  <!-- Wave pattern - video/motion -->
+  <path d="M8 28Q16 20 24 28Q32 36 40 28Q48 20 56 28" stroke="#e94560" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M8 36Q16 28 24 36Q32 44 40 36Q48 28 56 36" stroke="#e94560" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M8 44Q16 36 24 44Q32 52 40 44Q48 36 56 44" stroke="#e94560" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <!-- S letter accent -->
+  <path d="M22 18C22 14 26 12 32 12C38 12 42 14 42 18C42 24 36 26 32 28C28 30 22 32 22 38C22 44 28 46 36 46" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Sparkle -->
+  <circle cx="50" cy="18" r="3" fill="#f472b6"/>
+  <circle cx="54" cy="12" r="2" fill="#f472b6" opacity="0.5"/>
+</svg>

@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.5 13.5h-7a1 1 0 01-1-1v-5a1 1 0 012 0v3.586l5.293-5.293a1 1 0 011.414 1.414L10.914 14.5H15.5a1 1 0 010 2z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>DeepSeek</title>
+  <!-- D letter with tech feel -->
+  <path d="M14 12H28C38.4 12 46 19.6 46 32C46 44.4 38.4 52 28 52H14V12Z" fill="#1e3a5f"/>
+  <!-- Inner cutout -->
+  <path d="M18 16H26C34.8 16 40 21.2 40 32C40 42.8 34.8 48 26 48H18V16Z" fill="#2d4a6f"/>
+  <!-- Tech lines -->
+  <rect x="22" y="22" width="8" height="4" rx="1" fill="#60a5fa"/>
+  <rect x="22" y="30" width="12" height="4" rx="1" fill="#60a5fa"/>
+  <rect x="22" y="38" width="10" height="4" rx="1" fill="#60a5fa"/>
+  <!-- Accent dot -->
+  <circle cx="48" cy="16" r="4" fill="#3b82f6"/>
+  <circle cx="50" cy="48" r="3" fill="#3b82f6" opacity="0.5"/>
+</svg>

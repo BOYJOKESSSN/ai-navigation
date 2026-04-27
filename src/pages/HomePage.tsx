@@ -15,7 +15,7 @@ const CATEGORIES = [
   { id: 'video', label: 'AI视频', emoji: '🎬', desc: 'Sora / Runway / Kling' },
   { id: 'audio', label: 'AI音频', emoji: '🎵', desc: 'ElevenLabs / Suno / Descript' },
   { id: 'productivity', label: '效率工具', emoji: '⚡', desc: 'Notion / Perplexity / Gamma' },
-  { id: 'seo', label: 'SEO/营销', emoji: '📈', desc: 'Jasper / Copy.ai / Surfer' },
+  { id: 'community', label: '技术社区', emoji: '🌐', desc: '博客园 / 掘金 / V2EX' },
 ];
 
 const SCHEMA = {
@@ -38,7 +38,7 @@ export default function HomePage() {
     localTools
       .filter(t => t.featured)
       .sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))
-      .slice(0, 8),
+      .slice(0, 12),
   []);
 
   const latestArticles = useMemo(() =>
@@ -144,7 +144,7 @@ export default function HomePage() {
             全部工具 <ArrowRight size={14} />
           </Link>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 animate-stagger">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-3 animate-stagger">
           {CATEGORIES.map(cat => (
             <Link
               key={cat.id}
@@ -169,7 +169,7 @@ export default function HomePage() {
             查看全部 <ArrowRight size={14} />
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 animate-stagger">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 animate-stagger">
           {featuredTools.map(tool => (
             <ToolCard key={tool.id} tool={tool} />
           ))}

@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Kimi</title>
+  <!-- Moon crescent shape -->
+  <path d="M36 10C24 10 14 20 14 32C14 44 24 54 36 54C28 48 26 40 26 32C26 24 28 16 36 10Z" fill="#7c3aed"/>
+  <!-- K letter stylized -->
+  <path d="M22 18V46H28V34L40 46H48L36 34L48 18H40L28 30V18H22Z" fill="#ffffff"/>
+  <!-- Sparkle -->
+  <circle cx="48" cy="14" r="3" fill="#a78bfa"/>
+  <circle cx="52" cy="22" r="2" fill="#a78bfa" opacity="0.6"/>
+</svg>

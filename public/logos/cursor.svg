@@ -1,1 +1,10 @@
-<svg fill="#ffffff" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Cursor</title><path d="M11.503.131 1.891 5.678a.84.84 0 0 0-.42.726v11.188c0 .3.162.575.42.724l9.609 5.55a1 1 0 0 0 .998 0l9.61-5.55a.84.84 0 0 0 .42-.724V6.404a.84.84 0 0 0-.42-.726L12.497.131a1.01 1.01 0 0 0-.996 0M2.657 6.338h18.55c.263 0 .43.287.297.515L12.23 22.918c-.062.107-.229.064-.229-.06V12.335a.59.59 0 0 0-.295-.51l-9.11-5.257c-.109-.063-.064-.23.061-.23"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Cursor</title>
+  <!-- Cursor arrow -->
+  <path d="M12 12L12 48L24 40L32 56L38 52L30 36L44 36L12 12Z" fill="#7c3aed"/>
+  <!-- Inner highlight -->
+  <path d="M16 16L16 44L24 38L28 48L32 46L28 36L38 36L16 16Z" fill="#8b5cf6"/>
+  <!-- Accent line -->
+  <rect x="36" y="42" width="16" height="3" rx="1.5" fill="#a78bfa"/>
+  <rect x="36" y="48" width="12" height="3" rx="1.5" fill="#a78bfa" opacity="0.7"/>
+</svg>

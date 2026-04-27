@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Canva</title>
+  <!-- Three interlocking rings -->
+  <circle cx="28" cy="28" r="16" fill="none" stroke="#ffffff" stroke-width="6"/>
+  <circle cx="36" cy="36" r="16" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.8"/>
+  <circle cx="32" cy="44" r="16" fill="none" stroke="#ffffff" stroke-width="6" opacity="0.6"/>
+  <!-- Center blend -->
+  <circle cx="32" cy="34" r="8" fill="#ffffff" opacity="0.3"/>
+  <!-- C accent -->
+  <circle cx="12" cy="52" r="3" fill="#ffffff" opacity="0.5"/>
+</svg>

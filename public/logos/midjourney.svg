@@ -1,1 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Midjourney</title>
+  <!-- Sailboat hull -->
+  <path d="M12 48L20 54H44L52 48L48 40H16L12 48Z" fill="#ffffff"/>
+  <!-- Sail left -->
+  <path d="M18 44L18 16L36 44H18Z" fill="#ffffff" opacity="0.9"/>
+  <!-- Sail right -->
+  <path d="M46 44L46 20L30 44H46Z" fill="#ffffff" opacity="0.8"/>
+  <!-- Mast -->
+  <rect x="30" y="14" width="4" height="36" fill="#ffffff"/>
+  <!-- Flag -->
+  <path d="M34 14L34 22L44 18L34 14Z" fill="#ffffff"/>
+  <!-- Water reflection -->
+  <path d="M10 56Q18 52 26 56Q34 60 42 56Q50 52 58 56" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.5"/>
+  <!-- Small waves -->
+  <path d="M8 52Q12 50 16 52" stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M48 52Q52 50 56 52" stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.4"/>
+</svg>

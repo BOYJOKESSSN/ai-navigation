@@ -1,1 +1,13 @@
-<svg fill="#ffffff" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Suno</title><path d="M16.5 0C20.642 0 24 5.373 24 12h-9c0 6.627-3.358 12-7.5 12C3.358 24 0 18.627 0 12h9c0-6.627 3.358-12 7.5-12Z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Suno</title>
+  <!-- Musical note / headphone hybrid -->
+  <path d="M20 44V20L40 12V36" stroke="#f472b6" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Note heads -->
+  <ellipse cx="16" cy="46" rx="6" ry="5" fill="#f472b6"/>
+  <ellipse cx="36" cy="38" rx="6" ry="5" fill="#f472b6"/>
+  <!-- Sound waves -->
+  <path d="M50 24C54 28 54 36 50 40" stroke="#f472b6" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M54 20C60 28 60 36 54 44" stroke="#f472b6" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.5"/>
+  <!-- S accent -->
+  <path d="M46 50C46 48 48 46 52 46C56 46 58 48 58 50C58 54 52 56 48 56" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>

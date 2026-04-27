@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 3a4 4 0 014 4v2a4 4 0 01-8 0V9a4 4 0 014-4zm-6 13a8.046 8.046 0 016-2.5A8.046 8.046 0 0118 18v.5A1.5 1.5 0 0116.5 20h-9A1.5 1.5 0 016 18.5V18z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Kling</title>
+  <!-- K letter with creative flow -->
+  <path d="M16 10H28V22L44 10H54L38 24L54 38H44L28 26V54H16V10Z" fill="#f472b6"/>
+  <!-- Inner highlight -->
+  <path d="M20 14H26V22L38 14H46L34 24L46 34H38L26 26V46H20V14Z" fill="#f9a8d4"/>
+  <!-- Flow accent -->
+  <path d="M48 14C52 18 54 24 54 32C54 40 52 46 48 50" stroke="#be185d" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Sparkle -->
+  <circle cx="52" cy="16" r="3" fill="#ec4899"/>
+  <circle cx="56" cy="24" r="2" fill="#ec4899" opacity="0.5"/>
+</svg>
