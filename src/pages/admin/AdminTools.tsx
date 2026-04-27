@@ -3,6 +3,7 @@ import { Plus, Search, Edit2, Trash2, Star, Flame, ExternalLink, RefreshCw } fro
 import { Link } from 'react-router-dom';
 import { getTools, deleteTool } from '../../services/toolsService';
 import { isSupabaseConfigured } from '../../lib/supabase';
+import BrandLogo from '../../components/BrandLogo';
 import type { Tool } from '../../types';
 
 export default function AdminTools() {
@@ -136,8 +137,8 @@ export default function AdminTools() {
                   className={`border-b border-slate-700/30 hover:bg-slate-700/30 transition-colors ${i === filtered.length - 1 ? 'border-0' : ''}`}>
                   <td className="p-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-slate-700 flex items-center justify-center text-base flex-shrink-0">
-                        {tool.logo ? <img src={tool.logo} alt={tool.name} className="w-7 h-7 rounded-lg object-cover" /> : '🤖'}
+                      <div className="flex-shrink-0">
+                        <BrandLogo slug={tool.slug || ''} name={tool.name} size={36} />
                       </div>
                       <div>
                         <div className="font-medium flex items-center gap-1.5">

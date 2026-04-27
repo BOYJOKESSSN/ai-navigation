@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { Tool } from '@/types';
 import { ExternalLink, Star } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 interface ToolCardProps {
   tool: Tool;
@@ -25,14 +26,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
 
       {/* Header */}
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0">
-          <img
-            src={tool.logo}
-            alt={tool.name}
-            className="w-8 h-8 object-contain"
-            onError={e => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${tool.name}&background=6366f1&color=fff&size=40`; }}
-          />
-        </div>
+        <BrandLogo slug={tool.slug} name={tool.name} size={40} />
         <div>
           <h3 className="font-semibold text-slate-100 text-sm">{tool.name}</h3>
           <div className="flex items-center gap-1 mt-0.5">

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { tools, articles } from '@/data';
 import { Wrench, FileText, Eye, Star, TrendingUp, Plus } from 'lucide-react';
+import BrandLogo from '@/components/BrandLogo';
 
 export default function AdminDashboard() {
   const totalViews = articles.reduce((sum, a) => sum + a.views, 0);
@@ -54,12 +55,7 @@ export default function AdminDashboard() {
           <div className="space-y-3">
             {tools.slice(0, 5).map(tool => (
               <div key={tool.id} className="flex items-center gap-3">
-                <img
-                  src={tool.logo}
-                  alt={tool.name}
-                  className="w-7 h-7 rounded object-contain bg-slate-700 p-0.5"
-                  onError={e => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${tool.name}&size=28&background=6366f1&color=fff`; }}
-                />
+                <BrandLogo slug={tool.slug} name={tool.name} size={28} />
                 <div className="flex-1 min-w-0">
                   <div className="text-sm text-slate-200 font-medium truncate">{tool.name}</div>
                   <div className="text-xs text-slate-500">{tool.category} · {tool.pricing}</div>
@@ -81,7 +77,11 @@ export default function AdminDashboard() {
           <div className="space-y-3">
             {articles.slice(0, 5).map(article => (
               <div key={article.id} className="flex items-start gap-3">
-                <img src={article.coverImage} alt={article.title} className="w-12 h-8 rounded object-cover flex-shrink-0" />
+                {article.coverImage ? (
+                  <img src={article.coverImage} alt={article.title} className="w-12 h-8 rounded object-cover flex-shrink-0" />
+                ) : (
+                  <div className="w-12 h-8 rounded bg-slate-700 flex items-center justify-center flex-shrink-0 text-xs text-slate-500">📄</div>
+                )}
                 <div className="flex-1 min-w-0">
                   <div className="text-sm text-slate-200 line-clamp-1">{article.title}</div>
                   <div className="text-xs text-slate-500 mt-0.5">{article.publishedAt} · {(article.views ?? 0).toLocaleString()} 阅读</div>

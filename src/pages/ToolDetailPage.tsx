@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ExternalLink, Star, ArrowLeft, Check, X as XIcon, Tag, Users } from 'lucide-react';
 import SEOHead from '@/components/SEOHead';
 import ToolCard from '@/components/ToolCard';
+import BrandLogo from '@/components/BrandLogo';
 import { tools, toolCategories } from '@/data';
 
 export default function ToolDetailPage() {
@@ -54,14 +55,7 @@ export default function ToolDetailPage() {
         <div className="bg-slate-800/60 border border-slate-700/50 rounded-2xl p-6 md:p-8 mb-8">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-shrink-0">
-              <div className="w-20 h-20 rounded-2xl bg-slate-700 flex items-center justify-center overflow-hidden">
-                <img
-                  src={tool.logo}
-                  alt={tool.name}
-                  className="w-16 h-16 object-contain"
-                  onError={e => { (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${tool.name}&background=6366f1&color=fff&size=80`; }}
-                />
-              </div>
+              <BrandLogo slug={tool.slug} name={tool.name} size={80} />
             </div>
 
             <div className="flex-1">
