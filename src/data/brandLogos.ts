@@ -16,6 +16,11 @@ export const brandLogos: Record<string, BrandConfig> = {
   kimi: { initials: 'Ki', bg: '#7c3aed', fg: '#ffffff' },
   doubao: { initials: 'DB', bg: '#3b82f6', fg: '#ffffff' },
   gemini: { initials: 'Ge', bg: '#4285f4', fg: '#ffffff' },
+  coze: { initials: 'Co', bg: '#5B4CF7', fg: '#ffffff' },
+  'baidu-cloud': { initials: '百', bg: '#2932E1', fg: '#ffffff' },
+  qinyan: { initials: '清', bg: '#6C5CE7', fg: '#ffffff' },
+  jimeng: { initials: '即', bg: '#7B5EA7', fg: '#ffffff' },
+  cnblogs: { initials: '博', bg: '#1296DB', fg: '#ffffff' },
   // AI绘图
   midjourney: { initials: 'MJ', bg: '#0d1117', fg: '#58a6ff' },
   dalle: { initials: 'DL', bg: '#10a37f', fg: '#ffffff' },

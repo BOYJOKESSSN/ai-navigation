@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, Zap, Star, ArrowRight, TrendingUp, Sparkles } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import ToolCard from '../components/ToolCard';
 import ArticleCard from '../components/ArticleCard';
-import { getFeaturedTools } from '../services/toolsService';
-import { getArticles } from '../services/articlesService';
+import { tools as localTools, articles as localArticles } from '../data';
 import type { Tool, Article } from '../types';
 
 const CATEGORIES = [
@@ -33,19 +32,20 @@ const SCHEMA = {
 };
 
 export default function HomePage() {
-  const [featuredTools, setFeaturedTools] = useState<Tool[]>([]);
-  const [latestArticles, setLatestArticles] = useState<Article[]>([]);
-  const [loading, setLoading] = useState(true);
   const [searchQ, setSearchQ] = useState('');
 
-  useEffect(() => {
-    Promise.all([getFeaturedTools(8), getArticles({ limit: 3 })])
-      .then(([tools, articles]) => {
-        setFeaturedTools(tools);
-        setLatestArticles(articles);
-      })
-      .finally(() => setLoading(false));
-  }, []);
+  const featuredTools = useMemo(() =>
+    localTools
+      .filter(t => t.featured)
+      .sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))
+      .slice(0, 8),
+  []);
+
+  const latestArticles = useMemo(() =>
+    [...localArticles]
+      .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+      .slice(0, 3),
+  []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -169,19 +169,11 @@ export default function HomePage() {
             查看全部 <ArrowRight size={14} />
           </Link>
         </div>
-        {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="h-52 rounded-xl bg-white/[0.02] animate-pulse" />
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 animate-stagger">
-            {featuredTools.map(tool => (
-              <ToolCard key={tool.id} tool={tool} />
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 animate-stagger">
+          {featuredTools.map(tool => (
+            <ToolCard key={tool.id} tool={tool} />
+          ))}
+        </div>
       </section>
 
       {/* 最新测评 */}
@@ -195,34 +187,26 @@ export default function HomePage() {
             更多文章 <ArrowRight size={14} />
           </Link>
         </div>
-        {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {Array.from({ length: 3 }).map((_, i) => (
-              <div key={i} className="h-56 rounded-xl bg-white/[0.02] animate-pulse" />
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 animate-stagger">
-            {latestArticles.map(article => (
-              <ArticleCard key={article.id} article={article} />
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 animate-stagger">
+          {latestArticles.map(article => (
+            <ArticleCard key={article.id} article={article} />
+          ))}
+        </div>
+      </section>
 
-        {/* CTA */}
-        <div className="mt-16 text-center">
-          <div className="inline-block p-px rounded-2xl bg-gradient-to-r from-indigo-500/50 via-purple-500/50 to-cyan-500/50">
-            <div className="bg-[#0a0e1a] rounded-2xl px-10 py-10">
-              <h3 className="text-xl font-bold text-white mb-3">想推荐一款AI工具？</h3>
-              <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">如果你发现了好用的AI工具，欢迎投稿或联系我们收录</p>
-              <Link
-                to="/about"
-                className="btn-glow inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 text-white font-medium text-sm"
-              >
-                联系我们 <ArrowRight size={16} />
-              </Link>
-            </div>
+      {/* CTA 横幅 */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-600/[0.08] via-purple-600/[0.06] to-cyan-600/[0.08] border border-white/[0.06] px-8 py-8 sm:px-12 sm:py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 className="text-lg font-bold text-white mb-1">推荐一款好用的 AI 工具？</h3>
+            <p className="text-slate-500 text-sm">发现宝藏工具？联系我们收录，帮助更多人发现它</p>
           </div>
+          <Link
+            to="/about"
+            className="btn-glow shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-medium text-sm"
+          >
+            联系我们 <ArrowRight size={15} />
+          </Link>
         </div>
       </section>
     </>

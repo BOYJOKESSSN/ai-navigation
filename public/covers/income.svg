@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0a1a10"/>
+      <stop offset="100%" stop-color="#0d1a12"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#eab308" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#glow)"/>
+  <circle cx="400" cy="225" r="180" fill="#22c55e" opacity="0.05" filter="url(#blur1)"/>
+  <circle cx="600" cy="150" r="100" fill="#eab308" opacity="0.06" filter="url(#blur1)"/>
+  <g transform="translate(300,160)">
+    <circle cx="100" cy="80" r="65" fill="none" stroke="#eab308" stroke-width="2" opacity="0.6"/>
+    <text x="100" y="72" text-anchor="middle" font-size="28" fill="#eab308" opacity="0.7" font-family="sans-serif">$</text>
+    <text x="100" y="100" text-anchor="middle" font-size="10" fill="#eab308" opacity="0.4" font-family="sans-serif">INCOME</text>
+  </g>
+  <g transform="translate(160,180)">
+    <rect x="0" y="0" width="90" height="30" rx="15" fill="#22c55e" opacity="0.15" stroke="#22c55e" stroke-width="0.5"/>
+    <text x="45" y="19" text-anchor="middle" font-size="9" fill="#22c55e" opacity="0.6" font-family="sans-serif">Writing</text>
+  </g>
+  <g transform="translate(160,225)">
+    <rect x="0" y="0" width="90" height="30" rx="15" fill="#a855f7" opacity="0.15" stroke="#a855f7" stroke-width="0.5"/>
+    <text x="45" y="19" text-anchor="middle" font-size="9" fill="#a855f7" opacity="0.6" font-family="sans-serif">Design</text>
+  </g>
+  <g transform="translate(160,270)">
+    <rect x="0" y="0" width="90" height="30" rx="15" fill="#3b82f6" opacity="0.15" stroke="#3b82f6" stroke-width="0.5"/>
+    <text x="45" y="19" text-anchor="middle" font-size="9" fill="#3b82f6" opacity="0.6" font-family="sans-serif">Video</text>
+  </g>
+  <g transform="translate(160,315)">
+    <rect x="0" y="0" width="90" height="30" rx="15" fill="#f59e0b" opacity="0.15" stroke="#f59e0b" stroke-width="0.5"/>
+    <text x="45" y="19" text-anchor="middle" font-size="9" fill="#f59e0b" opacity="0.6" font-family="sans-serif">Code</text>
+  </g>
+  <path d="M260 195 L290 195" stroke="#22c55e" stroke-width="1" opacity="0.3" marker-end="none"/>
+  <path d="M260 240 L290 240" stroke="#a855f7" stroke-width="1" opacity="0.3"/>
+  <path d="M260 285 L290 285" stroke="#3b82f6" stroke-width="1" opacity="0.3"/>
+  <path d="M260 330 L290 330" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
+  <circle cx="100" cy="80" r="1.5" fill="#22c55e" opacity="0.4"/>
+  <circle cx="700" cy="120" r="1.5" fill="#eab308" opacity="0.4"/>
+  <circle cx="650" cy="380" r="1.2" fill="#22c55e" opacity="0.3"/>
+</svg>

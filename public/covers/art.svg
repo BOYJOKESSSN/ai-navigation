@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#150a25"/>
+      <stop offset="100%" stop-color="#1a0a30"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="35"/></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#glow)"/>
+  <circle cx="400" cy="225" r="200" fill="#a855f7" opacity="0.06" filter="url(#blur1)"/>
+  <circle cx="200" cy="150" r="100" fill="#ec4899" opacity="0.08" filter="url(#blur1)"/>
+  <circle cx="620" cy="300" r="120" fill="#8b5cf6" opacity="0.07" filter="url(#blur1)"/>
+  <g transform="translate(100,80)">
+    <rect x="0" y="0" width="160" height="160" rx="8" fill="#1a0a30" stroke="#ec4899" stroke-width="1" opacity="0.6"/>
+    <rect x="15" y="15" width="130" height="90" rx="4" fill="#0f0520"/>
+    <circle cx="80" cy="60" r="25" fill="#ec4899" opacity="0.3"/>
+    <circle cx="70" cy="55" r="15" fill="#f472b6" opacity="0.4"/>
+    <circle cx="90" cy="65" r="10" fill="#ec4899" opacity="0.5"/>
+    <rect x="15" y="115" width="60" height="4" rx="2" fill="#ec4899" opacity="0.4"/>
+    <rect x="15" y="128" width="40" height="4" rx="2" fill="#f472b6" opacity="0.25"/>
+    <text x="80" y="152" text-anchor="middle" font-size="8" fill="#ec4899" opacity="0.5" font-family="sans-serif">MJ</text>
+  </g>
+  <g transform="translate(320,80)">
+    <rect x="0" y="0" width="160" height="160" rx="8" fill="#1a0a30" stroke="#a855f7" stroke-width="1" opacity="0.6"/>
+    <rect x="15" y="15" width="130" height="90" rx="4" fill="#0f0520"/>
+    <circle cx="60" cy="50" r="20" fill="#a855f7" opacity="0.35"/>
+    <circle cx="100" cy="70" r="18" fill="#c084fc" opacity="0.3"/>
+    <rect x="40" y="40" width="80" height="40" rx="4" fill="#a855f7" opacity="0.15"/>
+    <rect x="15" y="115" width="60" height="4" rx="2" fill="#a855f7" opacity="0.4"/>
+    <rect x="15" y="128" width="40" height="4" rx="2" fill="#c084fc" opacity="0.25"/>
+    <text x="80" y="152" text-anchor="middle" font-size="8" fill="#a855f7" opacity="0.5" font-family="sans-serif">SD</text>
+  </g>
+  <g transform="translate(540,80)">
+    <rect x="0" y="0" width="160" height="160" rx="8" fill="#1a0a30" stroke="#8b5cf6" stroke-width="1" opacity="0.6"/>
+    <rect x="15" y="15" width="130" height="90" rx="4" fill="#0f0520"/>
+    <rect x="30" y="30" width="40" height="40" rx="4" fill="#8b5cf6" opacity="0.3"/>
+    <rect x="80" y="35" width="50" height="35" rx="4" fill="#6366f1" opacity="0.25"/>
+    <rect x="50" y="75" width="60" height="20" rx="4" fill="#8b5cf6" opacity="0.2"/>
+    <rect x="15" y="115" width="60" height="4" rx="2" fill="#8b5cf6" opacity="0.4"/>
+    <rect x="15" y="128" width="40" height="4" rx="2" fill="#6366f1" opacity="0.25"/>
+    <text x="80" y="152" text-anchor="middle" font-size="8" fill="#8b5cf6" opacity="0.5" font-family="sans-serif">DALL-E</text>
+  </g>
+  <g transform="translate(280,300)" opacity="0.4">
+    <circle cx="0" cy="0" r="6" fill="none" stroke="#ec4899" stroke-width="1.5"/>
+    <circle cx="30" cy="-5" r="5" fill="none" stroke="#a855f7" stroke-width="1.5"/>
+    <circle cx="60" cy="2" r="7" fill="none" stroke="#8b5cf6" stroke-width="1.5"/>
+    <line x1="6" y1="-2" x2="24" y2="-4" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+    <line x1="36" y1="-3" x2="53" y2="0" stroke="#ffffff" stroke-width="0.5" opacity="0.3"/>
+  </g>
+  <circle cx="80" cy="60" r="1.5" fill="#ec4899" opacity="0.4"/>
+  <circle cx="720" cy="80" r="1.5" fill="#a855f7" opacity="0.4"/>
+  <circle cx="400" cy="420" r="1.2" fill="#8b5cf6" opacity="0.3"/>
+</svg>

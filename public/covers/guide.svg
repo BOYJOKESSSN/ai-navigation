@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1a0a0a"/>
+      <stop offset="100%" stop-color="#1a100a"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#eab308" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="blur1"><feGaussianBlur stdDeviation="30"/></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect width="800" height="450" fill="url(#glow)"/>
+  <circle cx="400" cy="225" r="180" fill="#eab308" opacity="0.05" filter="url(#blur1)"/>
+  <g transform="translate(320,80)">
+    <path d="M80 0 L160 46 L160 139 L80 185 L0 139 L0 46 Z" fill="none" stroke="#eab308" stroke-width="2" opacity="0.5"/>
+    <path d="M80 30 L130 58 L130 127 L80 155 L30 127 L30 58 Z" fill="#eab308" opacity="0.08"/>
+    <circle cx="80" cy="92" r="25" fill="none" stroke="#eab308" stroke-width="1" opacity="0.4"/>
+    <text x="80" y="88" text-anchor="middle" font-size="16" fill="#eab308" opacity="0.5" font-family="sans-serif">!</text>
+    <path d="M80 70 L80 82" stroke="#eab308" stroke-width="2" opacity="0.6"/>
+    <circle cx="80" cy="87" r="1.5" fill="#eab308" opacity="0.6"/>
+  </g>
+  <g transform="translate(100,160)" opacity="0.5">
+    <circle cx="12" cy="12" r="12" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="0.5"/>
+    <text x="12" y="16" text-anchor="middle" font-size="10" fill="#ef4444" opacity="0.6" font-family="sans-serif">1</text>
+  </g>
+  <g transform="translate(100,200)" opacity="0.5">
+    <circle cx="12" cy="12" r="12" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="0.5"/>
+    <text x="12" y="16" text-anchor="middle" font-size="10" fill="#ef4444" opacity="0.6" font-family="sans-serif">2</text>
+  </g>
+  <g transform="translate(100,240)" opacity="0.5">
+    <circle cx="12" cy="12" r="12" fill="#ef4444" opacity="0.15" stroke="#ef4444" stroke-width="0.5"/>
+    <text x="12" y="16" text-anchor="middle" font-size="10" fill="#ef4444" opacity="0.6" font-family="sans-serif">3</text>
+  </g>
+  <g transform="translate(100,280)" opacity="0.4">
+    <circle cx="12" cy="12" r="12" fill="#eab308" opacity="0.15" stroke="#eab308" stroke-width="0.5"/>
+    <text x="12" y="16" text-anchor="middle" font-size="10" fill="#eab308" opacity="0.6" font-family="sans-serif">4</text>
+  </g>
+  <g transform="translate(100,320)" opacity="0.4">
+    <circle cx="12" cy="12" r="12" fill="#eab308" opacity="0.15" stroke="#eab308" stroke-width="0.5"/>
+    <text x="12" y="16" text-anchor="middle" font-size="10" fill="#eab308" opacity="0.6" font-family="sans-serif">5</text>
+  </g>
+  <g transform="translate(550,140)" opacity="0.4">
+    <circle cx="12" cy="12" r="12" fill="#eab308" opacity="0.15" stroke="#eab308" stroke-width="0.5"/>
+    <text x="12" y="16" text-anchor="middle" font-size="10" fill="#eab308" opacity="0.6" font-family="sans-serif">6</text>
+  </g>
+  <g transform="translate(550,180)" opacity="0.4">
+    <circle cx="12" cy="12" r="12" fill="#eab308" opacity="0.15" stroke="#eab308" stroke-width="0.5"/>
+    <text x="12" y="16" text-anchor="middle" font-size="10" fill="#eab308" opacity="0.6" font-family="sans-serif">7</text>
+  </g>
+  <g transform="translate(550,220)" opacity="0.4">
+    <circle cx="12" cy="12" r="12" fill="#eab308" opacity="0.15" stroke="#eab308" stroke-width="0.5"/>
+    <text x="12" y="16" text-anchor="middle" font-size="10" fill="#eab308" opacity="0.6" font-family="sans-serif">8</text>
+  </g>
+  <g transform="translate(580,310)" opacity="0.3">
+    <rect x="0" y="0" width="120" height="28" rx="6" fill="#22c55e" opacity="0.1" stroke="#22c55e" stroke-width="0.5"/>
+    <text x="60" y="18" text-anchor="middle" font-size="9" fill="#22c55e" opacity="0.5" font-family="sans-serif">SAFE CHOICE</text>
+  </g>
+  <circle cx="80" cy="60" r="1.5" fill="#ef4444" opacity="0.4"/>
+  <circle cx="720" cy="100" r="1.5" fill="#eab308" opacity="0.4"/>
+  <circle cx="400" cy="420" r="1.2" fill="#ef4444" opacity="0.3"/>
+</svg>

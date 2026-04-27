@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Search, Filter, SlidersHorizontal } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import ToolCard from '../components/ToolCard';
-import { getTools } from '../services/toolsService';
+import { tools as localTools } from '../data';
 import type { Tool } from '../types';
 
 const CATEGORIES = [
@@ -31,33 +31,46 @@ const SORT_OPTIONS = [
 ];
 
 export default function ToolsPage() {
-  const [tools, setTools] = useState<Tool[]>([]);
-  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('all');
   const [priceFilter, setPriceFilter] = useState('all');
   const [sortBy, setSortBy] = useState('rating');
   const [showFilters, setShowFilters] = useState(false);
 
-  useEffect(() => {
-    getTools({ category: category === 'all' ? undefined : category })
-      .then(setTools)
-      .finally(() => setLoading(false));
-  }, [category]);
+  const filtered = useMemo(() => {
+    let result = [...localTools];
 
-  const filtered = tools
-    .filter(t => {
+    // 按分类筛选
+    if (category !== 'all') {
+      result = result.filter(t => t.category === category);
+    }
+
+    // 按价格筛选
+    if (priceFilter !== 'all') {
+      result = result.filter(t => t.pricing === priceFilter);
+    }
+
+    // 搜索
+    if (search.trim()) {
       const q = search.toLowerCase();
-      const matchSearch = !q || t.name.toLowerCase().includes(q) || t.description.toLowerCase().includes(q) || t.tags?.some(tag => tag.toLowerCase().includes(q));
-      const matchPrice = priceFilter === 'all' || t.pricing === priceFilter;
-      return matchSearch && matchPrice;
-    })
-    .sort((a, b) => {
-      if (sortBy === 'rating') return (b.rating ?? 0) - (a.rating ?? 0);
-      if (sortBy === 'newest') return new Date(b.createdAt ?? 0).getTime() - new Date(a.createdAt ?? 0).getTime();
-      if (sortBy === 'popular') return (b.reviewCount ?? 0) - (a.reviewCount ?? 0);
-      return 0;
-    });
+      result = result.filter(t =>
+        t.name.toLowerCase().includes(q) ||
+        t.description.toLowerCase().includes(q) ||
+        t.tags?.some(tag => tag.toLowerCase().includes(q))
+      );
+    }
+
+    // 排序
+    if (sortBy === 'rating') {
+      result.sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0));
+    } else if (sortBy === 'newest') {
+      result.sort((a, b) => new Date(b.publishedAt ?? 0).getTime() - new Date(a.publishedAt ?? 0).getTime());
+    } else if (sortBy === 'popular') {
+      result.sort((a, b) => (b.reviewCount ?? 0) - (a.reviewCount ?? 0));
+    }
+
+    return result;
+  }, [category, priceFilter, search, sortBy]);
 
   return (
     <>
@@ -155,13 +168,7 @@ export default function ToolsPage() {
         <p className="text-slate-500 text-sm mb-6">共找到 <span className="text-indigo-400 font-medium">{filtered.length}</span> 个工具</p>
 
         {/* 工具列表 */}
-        {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <div key={i} className="h-52 rounded-xl bg-slate-800/40 animate-pulse" />
-            ))}
-          </div>
-        ) : filtered.length === 0 ? (
+        {filtered.length === 0 ? (
           <div className="text-center py-20 text-slate-500">
             <Search size={40} className="mx-auto mb-4 opacity-30" />
             <p className="text-lg">没有找到相关工具</p>
