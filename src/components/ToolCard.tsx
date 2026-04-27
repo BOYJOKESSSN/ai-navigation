@@ -37,7 +37,7 @@ export default function ToolCard({ tool }: ToolCardProps) {
           <h3 className="font-semibold text-slate-100 text-sm">{tool.name}</h3>
           <div className="flex items-center gap-1 mt-0.5">
             <Star size={11} className="text-yellow-400 fill-yellow-400" />
-            <span className="text-xs text-slate-400">{tool.rating} ({tool.reviewCount.toLocaleString()})</span>
+            <span className="text-xs text-slate-400">{tool.rating} ({(tool.reviewCount ?? 0).toLocaleString()})</span>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ export default function AdminDashboard() {
   const stats = [
     { label: '收录工具', value: tools.length, icon: Wrench, color: 'text-indigo-400', bg: 'bg-indigo-500/10' },
     { label: '测评文章', value: articles.length, icon: FileText, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
-    { label: '累计阅读', value: totalViews.toLocaleString(), icon: Eye, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+    { label: '累计阅读', value: (totalViews ?? 0).toLocaleString(), icon: Eye, color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
     { label: '平均评分', value: avgRating, icon: Star, color: 'text-yellow-400', bg: 'bg-yellow-500/10' },
   ];
 
@@ -84,7 +84,7 @@ export default function AdminDashboard() {
                 <img src={article.coverImage} alt={article.title} className="w-12 h-8 rounded object-cover flex-shrink-0" />
                 <div className="flex-1 min-w-0">
                   <div className="text-sm text-slate-200 line-clamp-1">{article.title}</div>
-                  <div className="text-xs text-slate-500 mt-0.5">{article.publishedAt} · {article.views.toLocaleString()} 阅读</div>
+                  <div className="text-xs text-slate-500 mt-0.5">{article.publishedAt} · {(article.views ?? 0).toLocaleString()} 阅读</div>
                 </div>
               </div>
             ))}

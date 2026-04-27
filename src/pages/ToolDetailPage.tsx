@@ -78,7 +78,7 @@ export default function ToolDetailPage() {
                 <div className="flex items-center gap-1.5">
                   <Star size={16} className="text-yellow-400 fill-yellow-400" />
                   <span className="font-semibold text-slate-200">{tool.rating}</span>
-                  <span className="text-slate-500">({tool.reviewCount.toLocaleString()} 评价)</span>
+                  <span className="text-slate-500">({(tool.reviewCount ?? 0).toLocaleString()} 评价)</span>
                 </div>
                 <div className="flex items-center gap-1.5 text-slate-400">
                   <Tag size={14} />
@@ -162,7 +162,7 @@ export default function ToolDetailPage() {
                   { label: '定价方式', value: pricingText[tool.pricing] },
                   { label: '工具分类', value: category?.name || '-' },
                   { label: '评分', value: `${tool.rating} / 5.0` },
-                  { label: '评价数', value: tool.reviewCount.toLocaleString() },
+                  { label: '评价数', value: (tool.reviewCount ?? 0).toLocaleString() },
                   { label: '收录时间', value: tool.publishedAt },
                 ].map(item => (
                   <div key={item.label} className="flex justify-between gap-2">

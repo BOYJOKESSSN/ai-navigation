@@ -65,7 +65,7 @@ export default function ArticleDetailPage() {
               <div className="flex flex-wrap items-center gap-4 text-sm text-slate-500 pb-5 border-b border-slate-700/50">
                 <span className="font-medium text-slate-400">✍️ {article.author}</span>
                 <span className="flex items-center gap-1"><Clock size={13} />{article.readTime} 分钟阅读</span>
-                <span className="flex items-center gap-1"><Eye size={13} />{article.views.toLocaleString()} 次阅读</span>
+                <span className="flex items-center gap-1"><Eye size={13} />{(article.views ?? 0).toLocaleString()} 次阅读</span>
                 <span>发布于 {article.publishedAt}</span>
                 {article.updatedAt !== article.publishedAt && <span>更新于 {article.updatedAt}</span>}
               </div>
