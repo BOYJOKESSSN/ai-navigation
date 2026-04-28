@@ -1,10 +1,9 @@
 import { useState, useMemo } from 'react';
-import { Search, Tag, TrendingUp, Calendar, Sparkles } from 'lucide-react';
+import { Search, TrendingUp, Calendar, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import ArticleCard from '../components/ArticleCard';
 import { articles as localArticles } from '../data';
-import type { Article } from '../types';
 
 const TAGS = ['全部', '工具测评', '深度对比', '实战指南', '模型测评', '选购指南', 'AI编程', 'AI绘图', 'AI写作', 'AI变现', 'ChatGPT', 'Claude', 'GPT-4o'];
 
@@ -21,7 +20,7 @@ export default function ReviewsPage() {
   }, [search, activeTag]);
 
   const allSorted = useMemo(() =>
-    [...localArticles].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()),
+    [...localArticles].sort((a, b) => new Date(b.publishedAt ?? 0).getTime() - new Date(a.publishedAt ?? 0).getTime()),
   []);
 
   const popular = useMemo(() =>

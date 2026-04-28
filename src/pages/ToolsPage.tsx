@@ -1,9 +1,8 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Search, Filter, SlidersHorizontal } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import ToolCard from '../components/ToolCard';
 import { tools as localTools } from '../data';
-import type { Tool } from '../types';
 
 const CATEGORIES = [
   { id: 'all', label: '全部' },
@@ -83,33 +82,33 @@ export default function ToolsPage() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* 页面头 */}
-        <div className="mb-10">
+        <div className="mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">AI 工具库</h1>
           <p className="text-slate-400 text-lg">精选 200+ AI 工具，所有评分来自真实体验</p>
         </div>
 
         {/* 搜索栏 */}
-        <div className="relative mb-6">
+        <div className="relative mb-8">
           <Search size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" />
           <input
             type="search"
             placeholder="搜索工具名称、功能、标签..."
             value={search}
             onChange={e => setSearch(e.target.value)}
-            className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-slate-800/60 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
+            className="w-full pl-12 pr-4 py-4 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30 transition-all"
           />
         </div>
 
         {/* 分类Tab */}
-        <div className="flex items-center gap-2 mb-4 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="flex items-center gap-2.5 mb-6 overflow-x-auto pb-2 scrollbar-hide">
           {CATEGORIES.map(cat => (
             <button
               key={cat.id}
               onClick={() => setCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+              className={`px-5 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all ${
                 category === cat.id
                   ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/25'
-                  : 'bg-slate-800/60 text-slate-400 hover:text-white hover:bg-slate-700/60'
+                  : 'bg-white/[0.04] text-slate-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.06]'
               }`}
             >
               {cat.label}
@@ -117,8 +116,8 @@ export default function ToolsPage() {
           ))}
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className={`ml-auto px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap flex items-center gap-1.5 transition-all ${
-              showFilters ? 'bg-slate-700 text-white' : 'bg-slate-800/60 text-slate-400 hover:text-white'
+            className={`ml-auto px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap flex items-center gap-1.5 transition-all ${
+              showFilters ? 'bg-indigo-600 text-white' : 'bg-white/[0.04] text-slate-400 hover:text-white border border-white/[0.06]'
             }`}
           >
             <SlidersHorizontal size={14} />
@@ -128,16 +127,16 @@ export default function ToolsPage() {
 
         {/* 展开筛选 */}
         {showFilters && (
-          <div className="mb-6 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50 flex flex-wrap gap-6">
+          <div className="mb-8 p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-wrap gap-8">
             <div>
-              <p className="text-xs text-slate-500 mb-2 flex items-center gap-1"><Filter size={12} />价格</p>
-              <div className="flex gap-2">
+              <p className="text-xs text-slate-500 mb-3 flex items-center gap-1.5"><Filter size={12} />价格</p>
+              <div className="flex gap-2.5">
                 {PRICE_FILTERS.map(p => (
                   <button
                     key={p.id}
                     onClick={() => setPriceFilter(p.id)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                      priceFilter === p.id ? 'bg-indigo-600 text-white' : 'bg-slate-700 text-slate-400 hover:text-white'
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                      priceFilter === p.id ? 'bg-indigo-600 text-white' : 'bg-white/[0.04] text-slate-400 hover:text-white border border-white/[0.06]'
                     }`}
                   >
                     {p.label}
@@ -146,14 +145,14 @@ export default function ToolsPage() {
               </div>
             </div>
             <div>
-              <p className="text-xs text-slate-500 mb-2">排序</p>
-              <div className="flex gap-2">
+              <p className="text-xs text-slate-500 mb-3">排序</p>
+              <div className="flex gap-2.5">
                 {SORT_OPTIONS.map(s => (
                   <button
                     key={s.id}
                     onClick={() => setSortBy(s.id)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
-                      sortBy === s.id ? 'bg-indigo-600 text-white' : 'bg-slate-700 text-slate-400 hover:text-white'
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                      sortBy === s.id ? 'bg-indigo-600 text-white' : 'bg-white/[0.04] text-slate-400 hover:text-white border border-white/[0.06]'
                     }`}
                   >
                     {s.label}
@@ -165,17 +164,17 @@ export default function ToolsPage() {
         )}
 
         {/* 结果计数 */}
-        <p className="text-slate-500 text-sm mb-6">共找到 <span className="text-indigo-400 font-medium">{filtered.length}</span> 个工具</p>
+        <p className="text-slate-500 text-sm mb-8">共找到 <span className="text-indigo-400 font-medium">{filtered.length}</span> 个工具</p>
 
         {/* 工具列表 */}
         {filtered.length === 0 ? (
-          <div className="text-center py-20 text-slate-500">
-            <Search size={40} className="mx-auto mb-4 opacity-30" />
+          <div className="text-center py-24 text-slate-500">
+            <Search size={48} className="mx-auto mb-4 opacity-30" />
             <p className="text-lg">没有找到相关工具</p>
-            <p className="text-sm mt-1">试试换个关键词？</p>
+            <p className="text-sm mt-2">试试换个关键词？</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filtered.map(tool => (
               <ToolCard key={tool.id} tool={tool} />
             ))}

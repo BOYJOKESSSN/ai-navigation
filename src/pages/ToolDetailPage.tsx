@@ -30,7 +30,7 @@ export default function ToolDetailPage() {
       <SEOHead
         title={`${tool.name} 详细测评 - 功能、价格、优缺点全解析 - AI导航`}
         description={tool.description}
-        keywords={`${tool.name},${tool.tags.join(',')},AI工具测评`}
+        keywords={`${tool.name},${(tool.tags ?? []).join(',')},AI工具测评`}
         canonical={`https://ainavigation.com/tools/${tool.slug}`}
         ogImage={tool.logo}
         type="article"
@@ -55,7 +55,7 @@ export default function ToolDetailPage() {
         <div className="bg-slate-800/60 border border-slate-700/50 rounded-2xl p-6 md:p-8 mb-8">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-shrink-0">
-              <BrandLogo slug={tool.slug} name={tool.name} size={80} />
+              <BrandLogo slug={tool.slug ?? tool.id} name={tool.name} size={80} />
             </div>
 
             <div className="flex-1">
@@ -63,7 +63,7 @@ export default function ToolDetailPage() {
                 <h1 className="text-3xl font-bold text-slate-100">{tool.name}</h1>
                 <div className="flex gap-2 mt-1">
                   {tool.hot && <span className="text-xs px-2 py-1 rounded-full bg-red-500/20 text-red-400">🔥热门</span>}
-                  {tool.new && <span className="text-xs px-2 py-1 rounded-full bg-cyan-500/20 text-cyan-400">NEW</span>}
+                  {tool.isNew && <span className="text-xs px-2 py-1 rounded-full bg-cyan-500/20 text-cyan-400">NEW</span>}
                 </div>
               </div>
               <p className="text-slate-300 mb-4 leading-relaxed">{tool.description}</p>
@@ -80,7 +80,7 @@ export default function ToolDetailPage() {
                 </div>
                 <div className="flex items-center gap-1.5 text-slate-400">
                   <Users size={14} />
-                  {pricingText[tool.pricing]}
+                  {pricingText[tool.pricing ?? 'free']}
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function ToolDetailPage() {
                 访问官网
               </a>
               <div className="flex flex-wrap gap-1.5 justify-end">
-                {tool.tags.map(tag => (
+                {(tool.tags ?? []).map(tag => (
                   <span key={tag} className="text-xs px-2 py-1 rounded-full bg-slate-700 text-slate-400">{tag}</span>
                 ))}
               </div>
@@ -153,7 +153,7 @@ export default function ToolDetailPage() {
               <h3 className="font-semibold text-slate-200 mb-4">基本信息</h3>
               <div className="space-y-3">
                 {[
-                  { label: '定价方式', value: pricingText[tool.pricing] },
+                  { label: '定价方式', value: pricingText[tool.pricing ?? 'free'] },
                   { label: '工具分类', value: category?.name || '-' },
                   { label: '评分', value: `${tool.rating} / 5.0` },
                   { label: '评价数', value: (tool.reviewCount ?? 0).toLocaleString() },

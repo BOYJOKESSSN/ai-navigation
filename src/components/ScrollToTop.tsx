@@ -15,10 +15,11 @@ export default function ScrollToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/30 flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/40 hover:-translate-y-0.5"
-      aria-label="Back to top"
+      className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-xl bg-indigo-600/90 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-500/30 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/40 hover:-translate-y-1"
+      aria-label="回到顶部"
+      title="回到顶部"
     >
-      <ArrowUp size={18} />
+      <ArrowUp size={20} />
     </button>
   );
 }

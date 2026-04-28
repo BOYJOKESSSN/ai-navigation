@@ -46,7 +46,7 @@ body::before {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #0a0e1a;
@@ -74,12 +74,17 @@ body::before {
   50% { background-position: 100% 50%; }
 }
 
-/* Card hover with premium glass effect */
+/* ===== Premium Card Hover Effects ===== */
 .card-hover {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.35s ease, 
+              border-color 0.3s ease, 
+              background 0.3s ease;
   position: relative;
   overflow: hidden;
 }
+
+/* Top shimmer line */
 .card-hover::before {
   content: '';
   position: absolute;
@@ -87,20 +92,40 @@ body::before {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(99,102,241,0.5), rgba(6,182,212,0.3), transparent);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
+
+/* Glow effect on hover */
+.card-hover::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
 .card-hover:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   box-shadow: 
-    0 12px 40px rgba(99,102,241,0.15),
-    0 4px 12px rgba(0,0,0,0.3);
-  border-color: rgba(99,102,241,0.4);
-  background: rgba(30, 41, 59, 0.8);
+    0 20px 40px rgba(99,102,241,0.12),
+    0 8px 16px rgba(0,0,0,0.25),
+    0 0 0 1px rgba(99,102,241,0.15);
+  border-color: rgba(99,102,241,0.35);
+  background: rgba(30, 41, 59, 0.85);
 }
 .card-hover:hover::before {
   opacity: 1;
+}
+.card-hover:hover::after {
+  width: 300px;
+  height: 300px;
 }
 
 /* Glass morphism */
@@ -113,10 +138,10 @@ body::before {
 
 /* Glow effects */
 .glow-primary {
-  box-shadow: 0 0 20px rgba(99,102,241,0.15), 0 0 60px rgba(99,102,241,0.05);
+  box-shadow: 0 0 25px rgba(99,102,241,0.2), 0 0 60px rgba(99,102,241,0.08);
 }
 .glow-accent {
-  box-shadow: 0 0 20px rgba(6,182,212,0.15), 0 0 60px rgba(6,182,212,0.05);
+  box-shadow: 0 0 25px rgba(6,182,212,0.2), 0 0 60px rgba(6,182,212,0.08);
 }
 
 /* Smooth fade in animation */
@@ -152,6 +177,7 @@ body::before {
 .animate-stagger > *:nth-child(10) { animation-delay: 0.5s; }
 .animate-stagger > *:nth-child(11) { animation-delay: 0.55s; }
 .animate-stagger > *:nth-child(12) { animation-delay: 0.6s; }
+.animate-stagger > *:nth-child(n+13) { animation-delay: 0.65s; }
 
 /* Button hover effects */
 .btn-glow {
@@ -169,7 +195,7 @@ body::before {
   background: linear-gradient(
     45deg,
     transparent,
-    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.06),
     transparent
   );
   transform: rotate(45deg);
@@ -181,8 +207,8 @@ body::before {
   transform: translateX(100%) rotate(45deg);
 }
 .btn-glow:hover {
-  box-shadow: 0 4px 20px rgba(99,102,241,0.4);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(99,102,241,0.45);
+  transform: translateY(-2px);
 }
 
 /* Prose custom styles */
@@ -211,6 +237,38 @@ body::before {
   transform: scale(1.05);
 }
 
+/* ===== Back to Top Button ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.9);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.back-to-top:hover {
+  background: rgba(99, 102, 241, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
 /* ===== Light Theme ===== */
 html.light body {
   background-color: #f8fafc;
@@ -226,9 +284,18 @@ html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
 html.light ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
 
 html.light .card-hover:hover {
-  box-shadow: 0 12px 40px rgba(99,102,241,0.08), 0 4px 12px rgba(0,0,0,0.04);
-  border-color: rgba(99,102,241,0.2);
-  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 16px 32px rgba(99,102,241,0.08), 0 4px 12px rgba(0,0,0,0.04);
+  border-color: rgba(99,102,241,0.25);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+html.light .back-to-top {
+  background: rgba(99, 102, 241, 0.95);
+}
+
+html.light .tag-pill:hover {
+  background: rgba(99,102,241,0.12);
+  color: #6366f1;
 }
 
 /* ===== Global Layout Optimizations ===== */
@@ -243,3 +310,65 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 /* Hide scrollbar utility */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ===== Section Spacing ===== */
+.section-spacing {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* ===== Card Grid Gap ===== */
+.card-grid {
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    gap: 2rem;
+  }
+}
+
+/* ===== Typography Hierarchy ===== */
+.text-heading {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.text-subheading {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.text-body {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+.text-caption {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+html.light .text-heading { color: #0f172a; }
+html.light .text-subheading { color: #1e293b; }
+html.light .text-body { color: #475569; }
+html.light .text-caption { color: #64748b; }

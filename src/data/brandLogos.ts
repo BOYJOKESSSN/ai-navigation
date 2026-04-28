@@ -8,19 +8,24 @@ interface BrandConfig {
 }
 
 export const brandLogos: Record<string, BrandConfig> = {
-  // AI对话
+  // ===== AI对话 =====
   chatgpt: { initials: 'GP', bg: '#10a37f', fg: '#ffffff' },
   claude: { initials: 'Cl', bg: '#d97706', fg: '#ffffff' },
   perplexity: { initials: 'Pe', bg: '#2563eb', fg: '#ffffff' },
   deepseek: { initials: 'DS', bg: '#1e3a5f', fg: '#ffffff' },
   kimi: { initials: 'Ki', bg: '#7c3aed', fg: '#ffffff' },
-  doubao: { initials: 'DB', bg: '#3b82f6', fg: '#ffffff' },
+  doubao: { initials: '豆', bg: '#3b82f6', fg: '#ffffff' },
   gemini: { initials: 'Ge', bg: '#4285f4', fg: '#ffffff' },
-  coze: { initials: 'Co', bg: '#5B4CF7', fg: '#ffffff' },
-  'baidu-cloud': { initials: '百', bg: '#2932E1', fg: '#ffffff' },
+  coze: { initials: '扣', bg: '#5B4CF7', fg: '#ffffff' },
+  'baidu-cloud': { initials: '云', bg: '#2932E1', fg: '#ffffff' },
   qinyan: { initials: '清', bg: '#6C5CE7', fg: '#ffffff' },
   jimeng: { initials: '即', bg: '#7B5EA7', fg: '#ffffff' },
   cnblogs: { initials: '博', bg: '#1296DB', fg: '#ffffff' },
+  wenxin: { initials: '文', bg: '#2932E1', fg: '#ffffff' },
+  tongyi: { initials: '通', bg: '#FF6A00', fg: '#ffffff' },
+  xinghuo: { initials: '讯', bg: '#0066FF', fg: '#ffffff' },
+  metaso: { initials: '秘', bg: '#6C5CE7', fg: '#ffffff' },
+  yuanbao: { initials: '元', bg: '#07C160', fg: '#ffffff' },
   // AI绘图
   midjourney: { initials: 'MJ', bg: '#0d1117', fg: '#58a6ff' },
   dalle: { initials: 'DL', bg: '#10a37f', fg: '#ffffff' },
@@ -48,12 +53,6 @@ export const brandLogos: Record<string, BrandConfig> = {
   grammarly: { initials: 'Gr', bg: '#15c39a', fg: '#ffffff' },
   jasper: { initials: 'Ja', bg: '#18181b', fg: '#f97316' },
   gamma: { initials: 'Ga', bg: '#7c3aed', fg: '#ffffff' },
-  // 新增品牌配置
-  wenxin: { initials: '文', bg: '#2932E1', fg: '#ffffff' },
-  tongyi: { initials: '通', bg: '#FF6A00', fg: '#ffffff' },
-  xinghuo: { initials: '讯', bg: '#0066FF', fg: '#ffffff' },
-  metaso: { initials: '秘', bg: '#6C5CE7', fg: '#ffffff' },
-  yuanbao: { initials: '元', bg: '#07C160', fg: '#ffffff' },
   leonardo: { initials: 'Le', bg: '#A855F7', fg: '#ffffff' },
   ideogram: { initials: 'Id', bg: '#EC4899', fg: '#ffffff' },
   wanxiang: { initials: '万', bg: '#FF6A00', fg: '#ffffff' },

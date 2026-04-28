@@ -4,8 +4,8 @@ import { Wrench, FileText, Eye, Star, TrendingUp, Plus } from 'lucide-react';
 import BrandLogo from '@/components/BrandLogo';
 
 export default function AdminDashboard() {
-  const totalViews = articles.reduce((sum, a) => sum + a.views, 0);
-  const avgRating = (tools.reduce((sum, t) => sum + t.rating, 0) / tools.length).toFixed(1);
+  const totalViews = articles.reduce((sum, a) => sum + (a.views ?? 0), 0);
+  const avgRating = (tools.reduce((sum, t) => sum + (t.rating ?? 0), 0) / tools.length).toFixed(1);
 
   const stats = [
     { label: '收录工具', value: tools.length, icon: Wrench, color: 'text-indigo-400', bg: 'bg-indigo-500/10' },
@@ -55,7 +55,7 @@ export default function AdminDashboard() {
           <div className="space-y-3">
             {tools.slice(0, 5).map(tool => (
               <div key={tool.id} className="flex items-center gap-3">
-                <BrandLogo slug={tool.slug} name={tool.name} size={28} />
+                <BrandLogo slug={tool.slug ?? tool.id} name={tool.name} size={28} />
                 <div className="flex-1 min-w-0">
                   <div className="text-sm text-slate-200 font-medium truncate">{tool.name}</div>
                   <div className="text-xs text-slate-500">{tool.category} · {tool.pricing}</div>

@@ -5,7 +5,6 @@ import SEOHead from '../components/SEOHead';
 import ToolCard from '../components/ToolCard';
 import ArticleCard from '../components/ArticleCard';
 import { tools as localTools, articles as localArticles } from '../data';
-import type { Tool, Article } from '../types';
 
 const CATEGORIES = [
   { id: 'chat', label: 'AI对话', emoji: '💬', desc: 'ChatGPT / Claude / Gemini' },
@@ -18,19 +17,6 @@ const CATEGORIES = [
   { id: 'community', label: '技术社区', emoji: '🌐', desc: '博客园 / 掘金 / V2EX' },
 ];
 
-const SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'AI导航',
-  url: 'https://ainavigation.com',
-  description: '专注AI工具测评与导航，帮助你从海量工具中找到最适合的那一款',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: { '@type': 'EntryPoint', urlTemplate: 'https://ainavigation.com/tools?q={search_term_string}' },
-    'query-input': 'required name=search_term_string',
-  },
-};
-
 export default function HomePage() {
   const [searchQ, setSearchQ] = useState('');
 
@@ -38,12 +24,12 @@ export default function HomePage() {
     localTools
       .filter(t => t.featured)
       .sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))
-      .slice(0, 12),
+      .slice(0, 16),
   []);
 
   const latestArticles = useMemo(() =>
     [...localArticles]
-      .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+      .sort((a, b) => new Date(b.publishedAt ?? 0).getTime() - new Date(a.publishedAt ?? 0).getTime())
       .slice(0, 3),
   []);
 
@@ -59,7 +45,6 @@ export default function HomePage() {
         description="收录200+精选AI工具，提供ChatGPT、Midjourney、Claude等主流AI工具的深度测评、使用教程与横向对比，持续更新。"
         keywords="AI工具导航,AI工具测评,ChatGPT,Midjourney,Claude,AI软件推荐,人工智能工具"
         canonical="https://ainavigation.com"
-        schema={SCHEMA}
       />
 
       {/* Hero区 */}
@@ -71,9 +56,9 @@ export default function HomePage() {
           <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-purple-600/[0.04] rounded-full blur-[100px]" />
         </div>
 
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-center">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-slate-300 text-sm mb-8 animate-fade-in">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] text-slate-300 text-sm mb-8 animate-fade-in">
             <Sparkles size={14} className="text-indigo-400" />
             持续收录最新 AI 工具
           </div>
@@ -84,7 +69,7 @@ export default function HomePage() {
             <span className="gradient-text">AI 工具</span>
           </h1>
 
-          <p className="text-slate-400 text-lg sm:text-xl mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <p className="text-slate-400 text-lg sm:text-xl mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in" style={{ animationDelay: '0.2s' }}>
             收录 200+ 精选 AI 工具，所有评分均来自真实体验，帮你少走弯路
           </p>
 
@@ -97,24 +82,24 @@ export default function HomePage() {
                 placeholder="搜索 ChatGPT、Midjourney、Cursor..."
                 value={searchQ}
                 onChange={e => setSearchQ(e.target.value)}
-                className="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30 focus:bg-white/[0.06] transition-all text-sm"
+                className="w-full pl-12 pr-4 py-4 rounded-xl bg-white/[0.04] border border-white/[0.08] text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 focus:ring-1 focus:ring-indigo-500/30 focus:bg-white/[0.06] transition-all text-sm"
               />
             </div>
             <button
               type="submit"
-              className="btn-glow px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold whitespace-nowrap text-sm"
+              className="btn-glow px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-semibold whitespace-nowrap text-sm"
             >
               搜索
             </button>
           </form>
 
           {/* 快捷标签 */}
-          <div className="flex flex-wrap justify-center gap-3 mt-5 animate-fade-in" style={{ animationDelay: '0.35s' }}>
+          <div className="flex flex-wrap justify-center gap-3 mt-6 animate-fade-in" style={{ animationDelay: '0.35s' }}>
             {['ChatGPT', 'Midjourney', 'Claude', 'Cursor', 'Sora', 'Suno'].map(tag => (
               <Link
                 key={tag}
                 to={`/tools?q=${tag}`}
-                className="text-xs text-slate-500 hover:text-indigo-400 transition-colors px-2 py-1 rounded-md hover:bg-white/[0.03]"
+                className="text-sm text-slate-500 hover:text-indigo-400 transition-colors px-3 py-1.5 rounded-lg hover:bg-white/[0.03]"
               >
                 {tag}
               </Link>
@@ -122,11 +107,11 @@ export default function HomePage() {
           </div>
 
           {/* 数据展示 */}
-          <div className="flex justify-center gap-12 mt-14 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="flex justify-center gap-16 mt-16 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             {[['200+', 'AI工具收录'], ['50+', '深度测评'], ['8大', '工具分类']].map(([num, label]) => (
               <div key={label} className="text-center">
-                <div className="text-2xl font-bold gradient-text">{num}</div>
-                <div className="text-slate-500 text-sm mt-1">{label}</div>
+                <div className="text-3xl font-bold gradient-text">{num}</div>
+                <div className="text-slate-500 text-sm mt-2">{label}</div>
               </div>
             ))}
           </div>
@@ -134,42 +119,42 @@ export default function HomePage() {
       </section>
 
       {/* 分类区 */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <Zap size={18} className="text-indigo-400" />
+          <h2 className="text-xl font-bold text-white flex items-center gap-2.5">
+            <Zap size={20} className="text-indigo-400" />
             按分类浏览
           </h2>
-          <Link to="/tools" className="text-indigo-400 hover:text-indigo-300 text-sm flex items-center gap-1 transition-colors">
+          <Link to="/tools" className="text-indigo-400 hover:text-indigo-300 text-sm flex items-center gap-1.5 transition-colors">
             全部工具 <ArrowRight size={14} />
           </Link>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-3 animate-stagger">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8 gap-4 animate-stagger">
           {CATEGORIES.map(cat => (
             <Link
               key={cat.id}
               to={`/tools?category=${cat.id}`}
-              className="group flex flex-col items-center gap-2.5 p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-indigo-500/30 hover:bg-white/[0.05] transition-all duration-300 text-center"
+              className="group flex flex-col items-center gap-3 p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-indigo-500/30 hover:bg-white/[0.05] transition-all duration-300 text-center"
             >
-              <span className="text-2xl group-hover:scale-110 transition-transform duration-300">{cat.emoji}</span>
-              <span className="text-xs font-medium text-slate-400 group-hover:text-white transition-colors">{cat.label}</span>
+              <span className="text-3xl group-hover:scale-110 transition-transform duration-300">{cat.emoji}</span>
+              <span className="text-sm font-medium text-slate-400 group-hover:text-white transition-colors">{cat.label}</span>
             </Link>
           ))}
         </div>
       </section>
 
       {/* 精选工具 */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <Star size={18} className="text-amber-400" />
+          <h2 className="text-xl font-bold text-white flex items-center gap-2.5">
+            <Star size={20} className="text-amber-400" />
             精选工具
           </h2>
-          <Link to="/tools" className="text-indigo-400 hover:text-indigo-300 text-sm flex items-center gap-1 transition-colors">
+          <Link to="/tools" className="text-indigo-400 hover:text-indigo-300 text-sm flex items-center gap-1.5 transition-colors">
             查看全部 <ArrowRight size={14} />
           </Link>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 animate-stagger">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-stagger">
           {featuredTools.map(tool => (
             <ToolCard key={tool.id} tool={tool} />
           ))}
@@ -177,17 +162,17 @@ export default function HomePage() {
       </section>
 
       {/* 最新测评 */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-xl font-bold text-white flex items-center gap-2">
-            <TrendingUp size={18} className="text-cyan-400" />
+          <h2 className="text-xl font-bold text-white flex items-center gap-2.5">
+            <TrendingUp size={20} className="text-cyan-400" />
             最新测评
           </h2>
-          <Link to="/reviews" className="text-indigo-400 hover:text-indigo-300 text-sm flex items-center gap-1 transition-colors">
+          <Link to="/reviews" className="text-indigo-400 hover:text-indigo-300 text-sm flex items-center gap-1.5 transition-colors">
             更多文章 <ArrowRight size={14} />
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 animate-stagger">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-stagger">
           {latestArticles.map(article => (
             <ArticleCard key={article.id} article={article} />
           ))}
@@ -195,15 +180,15 @@ export default function HomePage() {
       </section>
 
       {/* CTA 横幅 */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14">
-        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-600/[0.08] via-purple-600/[0.06] to-cyan-600/[0.08] border border-white/[0.06] px-8 py-8 sm:px-12 sm:py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-indigo-600/[0.08] via-purple-600/[0.06] to-cyan-600/[0.08] border border-white/[0.06] px-8 py-10 sm:px-12 sm:py-12 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-lg font-bold text-white mb-1">推荐一款好用的 AI 工具？</h3>
+            <h3 className="text-xl font-bold text-white mb-2">推荐一款好用的 AI 工具？</h3>
             <p className="text-slate-500 text-sm">发现宝藏工具？联系我们收录，帮助更多人发现它</p>
           </div>
           <Link
             to="/about"
-            className="btn-glow shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-medium text-sm"
+            className="btn-glow shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 text-white font-medium text-sm"
           >
             联系我们 <ArrowRight size={15} />
           </Link>

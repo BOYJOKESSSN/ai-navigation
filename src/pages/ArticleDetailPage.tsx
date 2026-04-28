@@ -162,14 +162,15 @@ export default function ArticleDetailPage() {
     );
   }
 
-  const shareUrl = `https://ainavigation.com/reviews/${article.slug}`;
+  const articleSlug = article.slug || article.id;
+  const shareUrl = `https://ainavigation.com/reviews/${articleSlug}`;
 
   return (
     <>
       <SEOHead
         title={`${article.title} - AI导航`}
-        description={article.excerpt}
-        keywords={article.tags.join(',')}
+        description={article.excerpt ?? ''}
+        keywords={(article.tags ?? []).join(',')}
         canonical={shareUrl}
         ogImage={article.coverImage}
         type="article"
@@ -230,7 +231,7 @@ export default function ArticleDetailPage() {
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-white/[0.06]">
-          {article.tags.map(tag => (
+          {(article.tags ?? []).map(tag => (
             <Link key={tag} to={`/reviews?q=${tag}`} className="text-xs px-3 py-1.5 rounded-full bg-white/[0.04] text-slate-500 hover:bg-indigo-500/15 hover:text-indigo-400 transition-colors border border-white/[0.04]">
               #{tag}
             </Link>

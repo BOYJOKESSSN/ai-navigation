@@ -143,8 +143,8 @@ export default function AdminTools() {
                       <div>
                         <div className="font-medium flex items-center gap-1.5">
                           {tool.name}
-                          {tool.isFeatured && <Star size={12} className="text-amber-400 fill-amber-400" />}
-                          {tool.isHot && <Flame size={12} className="text-orange-400" />}
+                          {tool.featured && <Star size={12} className="text-amber-400 fill-amber-400" />}
+                          {tool.hot && <Flame size={12} className="text-orange-400" />}
                         </div>
                         <div className="text-slate-500 text-xs truncate max-w-[200px]">{tool.description}</div>
                       </div>
@@ -154,8 +154,8 @@ export default function AdminTools() {
                     <span className="px-2 py-0.5 bg-slate-700 rounded-md text-xs">{tool.category}</span>
                   </td>
                   <td className="p-4 hidden lg:table-cell">
-                    <span className={`px-2 py-0.5 rounded-md text-xs ${pricingBadge[tool.pricing] || ''}`}>
-                      {pricingLabel[tool.pricing] || tool.pricing}
+                    <span className={`px-2 py-0.5 rounded-md text-xs ${pricingBadge[tool.pricing ?? 'free'] || ''}`}>
+                      {pricingLabel[tool.pricing ?? 'free'] || tool.pricing}
                     </span>
                   </td>
                   <td className="p-4 hidden lg:table-cell">
@@ -172,7 +172,7 @@ export default function AdminTools() {
                   </td>
                   <td className="p-4">
                     <div className="flex items-center justify-end gap-2">
-                      <a href={tool.website} target="_blank" rel="noopener noreferrer"
+                      <a href={tool.url} target="_blank" rel="noopener noreferrer"
                         className="p-1.5 rounded-lg hover:bg-slate-700 text-slate-500 hover:text-slate-300 transition-colors">
                         <ExternalLink size={14} />
                       </a>

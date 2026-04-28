@@ -122,18 +122,18 @@ export default function AdminArticles() {
                 <div className="min-w-0">
                   <div className="flex items-center gap-2 flex-wrap">
                     <h3 className="font-medium text-sm line-clamp-1">{article.title}</h3>
-                    {article.isFeatured && <Star size={12} className="text-amber-400 fill-amber-400 flex-shrink-0" />}
+                    {article.featured && <Star size={12} className="text-amber-400 fill-amber-400 flex-shrink-0" />}
                   </div>
                   <p className="text-slate-500 text-xs mt-1 line-clamp-2">{article.excerpt}</p>
                   <div className="flex items-center gap-3 mt-2 text-xs text-slate-500">
                     <span className="px-2 py-0.5 bg-slate-700 rounded-md">
-                      {categoryLabels[article.category] || article.category}
+                      {categoryLabels[article.category ?? ''] || article.category}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Eye size={11} /> {article.viewCount || 0}
+                      <Eye size={11} /> {article.views ?? 0}
                     </span>
-                    <span>{article.readTime} 分钟</span>
-                    <span>{new Date(article.publishedAt).toLocaleDateString('zh-CN')}</span>
+                    <span>{article.readTime ?? 0} 分钟</span>
+                    <span>{article.publishedAt ? new Date(article.publishedAt).toLocaleDateString('zh-CN') : ''}</span>
                   </div>
                 </div>
               </div>

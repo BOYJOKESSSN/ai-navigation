@@ -13,7 +13,7 @@ const defaultForm: FormData = {
   name: '', slug: '', description: '', longDescription: '',
   category: 'chat', tags: [], logo: '', url: '',
   pricing: 'freemium', rating: '4.5', reviewCount: '0',
-  featured: false, hot: false, new: true,
+  featured: false, hot: false, isNew: true,
   pros: [], cons: [],
 };
 
@@ -35,8 +35,8 @@ export default function ToolForm() {
   };
 
   const addTag = () => {
-    if (tagInput.trim() && !form.tags.includes(tagInput.trim())) {
-      update('tags', [...form.tags, tagInput.trim()]);
+    if (tagInput.trim() && !(form.tags ?? []).includes(tagInput.trim())) {
+      update('tags', [...(form.tags ?? []), tagInput.trim()]);
       setTagInput('');
     }
   };
@@ -124,10 +124,10 @@ export default function ToolForm() {
               <button type="button" onClick={addTag} className="px-4 py-2 rounded-lg bg-slate-700 text-slate-300 hover:bg-slate-600 text-sm">添加</button>
             </div>
             <div className="flex flex-wrap gap-2">
-              {form.tags.map(tag => (
+              {(form.tags ?? []).map(tag => (
                 <span key={tag} className="flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-400">
                   {tag}
-                  <button type="button" onClick={() => update('tags', form.tags.filter(t => t !== tag))} className="hover:text-red-400">×</button>
+                  <button type="button" onClick={() => update('tags', (form.tags ?? []).filter(t => t !== tag))} className="hover:text-red-400">×</button>
                 </span>
               ))}
             </div>
@@ -137,10 +137,10 @@ export default function ToolForm() {
             {([
               { key: 'featured', label: '设为精选' },
               { key: 'hot', label: '标记热门' },
-              { key: 'new', label: '标记新上架' },
+              { key: 'isNew', label: '标记新上架' },
             ] as const).map(opt => (
               <label key={opt.key} className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" checked={form[opt.key]} onChange={e => update(opt.key, e.target.checked)}
+                <input type="checkbox" checked={form[opt.key as keyof FormData] as boolean} onChange={e => update(opt.key as keyof FormData, e.target.checked)}
                   className="w-4 h-4 rounded accent-indigo-500" />
                 <span className="text-sm text-slate-300">{opt.label}</span>
               </label>

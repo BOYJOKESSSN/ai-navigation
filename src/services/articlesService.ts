@@ -52,8 +52,10 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
   // 增加浏览量
   supabase
     .from('articles')
-    .update({ view_count: (data.view_count || 0) + 1 })
-    .eq('id', data.id)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .update({ view_count: ((data as any).view_count || 0) + 1 } as any)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .eq('id', (data as any).id)
     .then(() => {});
 
   return mapArticle(data);
@@ -72,9 +74,10 @@ export async function createArticle(article: Omit<Article, 'id'>): Promise<Artic
 
 /* ── 更新文章（后台使用） ── */
 export async function updateArticle(id: string, updates: Partial<Article>): Promise<Article> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { data, error } = await supabase
     .from('articles')
-    .update(reverseMapArticle(updates as Article))
+    .update(reverseMapArticle(updates as Article) as any)
     .eq('id', id)
     .select()
     .single();
@@ -102,11 +105,10 @@ function mapArticle(row: any): Article {
     category:    row.category,
     tags:        row.tags || [],
     readTime:    row.read_time,
-    viewCount:   row.view_count,
-    likeCount:   row.like_count,
-    isFeatured:  row.is_featured,
+    views:       row.view_count,
+    featured:    row.is_featured,
     publishedAt: row.published_at || row.created_at,
-    createdAt:   row.created_at,
+    updatedAt:   row.updated_at,
   };
 }
 
@@ -122,7 +124,7 @@ function reverseMapArticle(article: Partial<Article>): any {
   if (article.category !== undefined)    result.category     = article.category;
   if (article.tags !== undefined)        result.tags         = article.tags;
   if (article.readTime !== undefined)    result.read_time    = article.readTime;
-  if (article.isFeatured !== undefined)  result.is_featured  = article.isFeatured;
+  if (article.featured !== undefined)   result.is_featured  = article.featured;
   return result;
 }
 
@@ -130,9 +132,9 @@ function applyLocalFilter(articles: Article[], query: ArticlesQuery): Article[] 
   let result = [...articles];
   if (query.category && query.category !== 'all')
     result = result.filter(a => a.category === query.category);
-  if (query.featured) result = result.filter(a => a.isFeatured);
+  if (query.featured) result = result.filter(a => a.featured);
   if (query.search)   result = result.filter(a => a.title.toLowerCase().includes(query.search!.toLowerCase()));
-  if (query.tag)      result = result.filter(a => a.tags.includes(query.tag!));
+  if (query.tag)      result = result.filter(a => (a.tags ?? []).includes(query.tag!));
   if (query.limit)    result = result.slice(query.offset || 0, (query.offset || 0) + query.limit);
   return result;
 }

@@ -61,9 +61,10 @@ export async function getToolBySlug(slug: string): Promise<Tool | null> {
 
 /* ── 新增工具（后台使用） ── */
 export async function createTool(tool: Omit<Tool, 'id'>): Promise<Tool> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { data, error } = await supabase
     .from('tools')
-    .insert({ ...tool, updated_at: new Date().toISOString() })
+    .insert({ ...tool, updated_at: new Date().toISOString() } as any)
     .select()
     .single();
   if (error) throw error;
@@ -72,9 +73,10 @@ export async function createTool(tool: Omit<Tool, 'id'>): Promise<Tool> {
 
 /* ── 更新工具（后台使用） ── */
 export async function updateTool(id: string, updates: Partial<Tool>): Promise<Tool> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { data, error } = await supabase
     .from('tools')
-    .update(updates)
+    .update(updates as any)
     .eq('id', id)
     .select()
     .single();
